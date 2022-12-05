@@ -1,0 +1,43 @@
+﻿@model Ideia
+@{
+	Layout = "_Layout";
+	int posicao = 1;
+}
+
+<h1 class="titulo">Liderança</h1>
+
+<div class="wrapper">
+	<div class="lboard_section">
+		<div class="lboard_tabs">
+			<div class="tabs">
+				<ul>
+				</ul>
+			</div>
+		</div>
+
+		<div class="lboard_wrap">
+			<div class="lboard_item month" style="display: block;">
+				@foreach (var ideia in Model.GetIdeias())
+				{
+					<div class="lboard_mem">
+						<div class="name_bar">
+							<p>
+								@if (posicao == 1)
+								{
+									<img class="iconeposicao" src="https://cdn-icons-png.flaticon.com/512/1657/1657088.png" />
+								}
+								<span>
+									@(posicao++).
+								</span>@ideia.DescricaoGanho
+							</p>
+						</div>
+						<div class="points">
+							@ideia.Ganho 
+						</div>
+					</div>
+
+				}
+			</div>
+		</div>
+	</div>
+</div>
