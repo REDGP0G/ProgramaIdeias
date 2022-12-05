@@ -1,91 +1,109 @@
 ﻿@model Ideia
 @{
-    ViewData["Title"] = "Cadastrar";
-    Layout = "_Layout";
+	ViewData["Title"] = "Cadastrar";
+	Layout = "_Layout";
 
 }
 
 @if (TempData["MensagemErro"] != null)
 {
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn-danger btn-sm close-alert" aria-label="Close">X</button>
-        @TempData["MensagemErro"]
-    </div>
+	<div class="alert alert-danger" role="alert">
+		<button type="button" class="btn-danger btn-sm close-alert" aria-label="Close">X</button>
+		@TempData["MensagemErro"]
+	</div>
 }
 
 <h1 class="titulo">Formulário de Cadastro</h1>
 <div class="container">
-    <form asp-action="Cadastrar">
-        <div style="margin-bottom:10px;margin-top:10px">
-            <div class="falha-details">
-                <div class="textfield">
-                    <label asp-for="NomeEquipe" class="control-label"></label>
-                    <input asp-for="NomeEquipe" class="form-control" autocomplete="off" placeholder="Digite o nome da equipe" />
-                </div>
-                <div class="textfield">
-                    <label class="control-label">Número de Participantes</label>
-                    <select id="nparticipantes" class="form-select" onchange="AtualizarParticipantes()">
-                        <option selected disabled value="">Selecione a quantidade de participantes</option>
-                        @for (int x = 1; x <= 6; x++)
-                        {
-                            <option value="@x">@x</option>
-                        }
-                    </select>
-                </div>
-                @for (int x = 1; x <= 6; x++)
-                {
-                    <div class="textfield divparticipantes hide">
-                        <label class="control-label">Participante @x</label>
-                        <select asp-for="Participantes" class="form-select">
-                            <option selected disabled value="">Selecione o funcionário</option>
-                            @foreach (var funcionario in Model.GetFuncionarios().OrderBy(x => x.Nome))
-                            {
-                                <option value="@funcionario.IDFuncionario">@funcionario.Nome</option>
-                            }
-                        </select>
-                    </div>
-                }
-                <div class="textfield">
-                    <label asp-for="Descricao" class="control-label"></label>
-                    <textarea asp-for="Descricao" style="min-height: calc(1.5em + 0.75rem + 100px);" class="form-control" autocomplete="off" placeholder="Descreva sobre sua ideia"></textarea>
-                    @Html.ValidationMessageFor(x => x.Descricao)
-                </div>
-                <div class="textfield">
-                    <label asp-for="DescricaoGanho" class="control-label"></label>
-                    <input asp-for="DescricaoGanho" class="form-control" autocomplete="off" placeholder="Descreva qual foi o ganho" />
-                </div>
-                <div class="textfield">
-                    <label asp-for="Ganho" class="control-label"></label>
-                    <input asp-for="Ganho" class="form-control" autocomplete="off" placeholder="Digite o ganho" />
-                </div>
-                <div class="textfield">
-                    <label class="control-label">Quanto foi o investimento?</label>
-                    <input type="number" asp-for="Investimento" class="form-control" autocomplete="off" placeholder="Investimento">
-                    @Html.ValidationMessageFor(x => x.Investimento)
-                </div>
-            </div>
-        </div>
-        <div class="mb-3">
-            <input style="padding: 16px 0px;margin-top:16px;" type="submit" value="Cadastrar" class="btn btn-primary" />
-        </div>
-    </form>
+	<form asp-action="Cadastrar" id="form">
+		<div style="margin-bottom:10px;margin-top:10px">
+			<div class="falha-details">
+				<div class="textfield">
+					<label asp-for="NomeEquipe" class="control-label"></label>
+					<input asp-for="NomeEquipe" class="form-control" autocomplete="off" placeholder="Digite o nome da equipe" />
+				</div>
+				<div class="textfield">
+					<label class="control-label">Número de Participantes</label>
+					<select id="nparticipantes" class="form-select" onchange="AtualizarParticipantes()">
+						<option selected disabled value="">Selecione a quantidade de participantes</option>
+						@for (int x = 1; x <= 6; x++)
+						{
+							<option value="@x">@x</option>
+						}
+					</select>
+				</div>
+				@for (int x = 1; x <= 6; x++)
+				{
+					<div class="textfield divparticipantes required hide">
+						<label class="control-label">Participante @x</label>
+						<select asp-for="Participantes" class="form-select">
+							<option selected disabled value="">Selecione o funcionário</option>
+							@foreach (var funcionario in Model.GetFuncionarios().OrderBy(x => x.Nome))
+							{
+								<option value="@funcionario.IDFuncionario">@funcionario.Nome</option>
+							}
+						</select>
+					</div>
+				}
+				<div class="textfield">
+					<label asp-for="Descricao" class="control-label required"></label>
+					<textarea asp-for="Descricao" style="min-height: calc(1.5em + 0.75rem + 100px);" class="form-control descricao required" autocomplete="off" placeholder="Descreva sobre sua ideia"></textarea>
+					<span class="field-validation-error hide descricao">Descreva a Ideia</span>
+				</div>
+				<div class="textfield">
+					<label asp-for="DescricaoGanho" class="control-label"></label>
+					<input asp-for="DescricaoGanho" class="form-control required descricaoganho" autocomplete="off" placeholder="Descreva qual foi o ganho" />
+					<span class="field-validation-error hide descricaoganho">Descreva o Ganho</span>
+				</div>
+				<div class="textfield">
+					<label class="control-label">Quanto foi o investimento?</label>
+					<input type="number" asp-for="Investimento" class="form-control" autocomplete="off" placeholder="Investimento">
+				</div>
+			</div>
+		</div>
+		<div class="mb-3">
+			<input style="padding: 16px 0px;margin-top:16px;" type="submit" value="Cadastrar" class="btn btn-primary" />
+		</div>
+	</form>
 </div>
 
 <script>
-    const divParticipantes = document.querySelectorAll('.divparticipantes'),
-        nParticipantes = document.getElementById('nparticipantes');
+	const divParticipantes = document.querySelectorAll('.divparticipantes'),
+		nParticipantes = document.getElementById('nparticipantes'),
+		formIdeia = document.getElementById('form'),
+		investimentoInput = document.getElementById('investimento'),
+		requiredInputs = document.querySelectorAll('.required'),
+		errors = document.querySelectorAll('.field-validation-error');
+
+	function AtualizarParticipantes() {
+		divParticipantes.forEach((div) => {
+			div.classList.add('hide');
+		});
+
+		for (let x = 0; x < nParticipantes.value; x++) {
+			divParticipantes[x].classList.remove('hide');
+		}
+	}
+
+	formIdeia.addEventListener('submit', (f) => {
+		errors.forEach((e) =>{
+			e.classList.add('hide');
+		});
 
 
+		requiredInputs.forEach((i) => {
+			if (i.value === '') {
+				var classlist = i.classList;
+				errors.forEach((e) => {
+					classlist.forEach((cl) => {
+						if (e.classList.contains(cl)) {
+							e.classList.remove('hide');
+						}
+					});
+				});
+				f.preventDefault();
+			}
+		});
+	});
 
-
-    function AtualizarParticipantes() {
-           divParticipantes.forEach((div) =>{
-           div.classList.add('hide');
-           })
-
-        for (let x = 0; x < nParticipantes.value; x++) {
-            divParticipantes[x].classList.remove('hide');
-            console.log('unhiding');
-        }
-    }
 </script>

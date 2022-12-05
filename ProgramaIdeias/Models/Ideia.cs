@@ -10,24 +10,21 @@ namespace ProgramaIdeias.Models
         public int IDIdeia { get; set; }
 
         [Display(Name = "Descrição da Ideia")]
-        [Required(ErrorMessage = "Descreva sua ideia")]
         public string Descricao { get; set; }
         public DateTime Data { get; set; }
         public string Status { get; set; }
 
-        [Display(Name = "Ganho Financeiro")]
+        [Display(Name = "Ganho Monetário")]
         public float? Ganho { get; set; }
 
-        [Display(Name = "Ganho Descritivo")]
+        [Display(Name = "Ganho")]
         public string? DescricaoGanho { get; set; }
-
-        [Required(ErrorMessage = "Digite o investimento, se não tiver, coloque 0")]
-        public float Investimento { get; set; }
+        public double Investimento { get; set; }
         public string Feedback { get; set; }
         [Display(Name = "Nome da Equipe")]
-        public string NomeEquipe { get; set; }
+        public string? NomeEquipe { get; set; }
 
-        public virtual List<EquipeIdeia> EquipeIdeia { get; set; }
+        public virtual List<EquipeIdeia>? EquipeIdeia { get; set; }
 
         [NotMapped]
         public IEnumerable<int>? Participantes { get; set; }
@@ -49,5 +46,5 @@ namespace ProgramaIdeias.Models
         {
             return _context.Funcionario.ToList();
         }
-    }
+	}
 }

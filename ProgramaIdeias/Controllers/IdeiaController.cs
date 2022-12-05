@@ -16,13 +16,12 @@ namespace ProgramaIdeias.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var ideia = _context.Ideia.ToList();
+            Ideia ideia = new(_context);
             return View(ideia);
         }
         public IActionResult Leaderboard()
         {
-            Ideia ideia = _context.Ideia.First();
-            return View(ideia);
+            return View();
         }
         public IActionResult Create()
 		{
@@ -36,6 +35,7 @@ namespace ProgramaIdeias.Controllers
             try
             {
                 ideia.Data = DateTime.Now;
+                ideia.Status = "Em Análise";
                 _context.Add(ideia);
                 _context.SaveChanges();
                 foreach (var participante in ideia.Participantes)

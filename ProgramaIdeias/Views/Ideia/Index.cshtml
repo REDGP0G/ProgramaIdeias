@@ -1,1 +1,47 @@
-﻿
+﻿@model Ideia
+@{
+	List<string> equipe = new();
+}
+<table class="table table-sortable" id="table-falhas">
+	<thead>
+		<tr>
+			<th>
+				Equipe
+			</th>
+			<th>
+				Data
+			</th>
+			<th>
+				Status
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.GetIdeias())
+		{
+			<tr>
+				@if (item.NomeEquipe != null)
+				{
+					<td data-label="Quem Identificou a Falha:">
+						@Html.DisplayFor(modelItem => item.NomeEquipe)
+					</td>
+				}
+				else
+				{
+					equipe.Clear();
+					foreach (var func in item.EquipeIdeia)
+					{
+						equipe.Add(func.Funcionario.Nome);
+					}
+					<td data-label="Quem Identificou a Falha:">@equipe[0] @equipe[1] @equipe[2] @equipe[3] @equipe[4] @equipe[5]</td>
+				}
+				<td data-label="Data:">
+					@Html.DisplayFor(modelItem => item.Data)
+				</td>
+				<td data-label="Status:">
+					@Html.DisplayFor(modelItem => item.Status)
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

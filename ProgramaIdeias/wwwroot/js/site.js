@@ -24,3 +24,4 @@ tabs.forEach(function (tab) {
             year.style.display = "block";
         }
     })
+});

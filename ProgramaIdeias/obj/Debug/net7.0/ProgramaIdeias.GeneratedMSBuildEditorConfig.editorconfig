@@ -9,37 +9,37 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProgramaIdeias
 build_property.RootNamespace = ProgramaIdeias
-build_property.ProjectDir = C:\Temp\Projetos Visual Studio\ProgramaIdeias2.0\ProgramaIdeias\
+build_property.ProjectDir = D:\Documentos\Guilherme\Projetos VS\ProgramaIdeias\ProgramaIdeias\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Temp\Projetos Visual Studio\ProgramaIdeias2.0\ProgramaIdeias
+build_property.MSBuildProjectDirectory = D:\Documentos\Guilherme\Projetos VS\ProgramaIdeias\ProgramaIdeias
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Temp/Projetos Visual Studio/ProgramaIdeias2.0/ProgramaIdeias/Views/Ideia/Create.cshtml]
+[D:/Documentos/Guilherme/Projetos VS/ProgramaIdeias/ProgramaIdeias/Views/Ideia/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWRlaWFcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Projetos Visual Studio/ProgramaIdeias2.0/ProgramaIdeias/Views/Ideia/Index.cshtml]
+[D:/Documentos/Guilherme/Projetos VS/ProgramaIdeias/ProgramaIdeias/Views/Ideia/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWRlaWFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Projetos Visual Studio/ProgramaIdeias2.0/ProgramaIdeias/Views/Ideia/Leaderboard.cshtml]
+[D:/Documentos/Guilherme/Projetos VS/ProgramaIdeias/ProgramaIdeias/Views/Ideia/Leaderboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSWRlaWFcTGVhZGVyYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Projetos Visual Studio/ProgramaIdeias2.0/ProgramaIdeias/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Documentos/Guilherme/Projetos VS/ProgramaIdeias/ProgramaIdeias/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Projetos Visual Studio/ProgramaIdeias2.0/ProgramaIdeias/Views/_ViewImports.cshtml]
+[D:/Documentos/Guilherme/Projetos VS/ProgramaIdeias/ProgramaIdeias/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Projetos Visual Studio/ProgramaIdeias2.0/ProgramaIdeias/Views/_ViewStart.cshtml]
+[D:/Documentos/Guilherme/Projetos VS/ProgramaIdeias/ProgramaIdeias/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Projetos Visual Studio/ProgramaIdeias2.0/ProgramaIdeias/Views/Shared/_Layout.cshtml]
+[D:/Documentos/Guilherme/Projetos VS/ProgramaIdeias/ProgramaIdeias/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-laar95ac8r
