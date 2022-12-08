@@ -186,38 +186,6 @@ input {
         background-color: #545454;
     }
 
-    .table .reprovado {
-        color: #fff;
-        background-color: #b02020;
-    }
-
-.table-sortable th {
-    cursor: pointer;
-}
-
-.table-sortable .acoes {
-    cursor: default;
-}
-
-.table-sortable .th-sort-asc::after {
-    content: "\25b4";
-}
-
-.table-sortable .th-sort-desc::after {
-    content: "\25be";
-}
-
-.table-sortable .th-sort-desc::after,
-.table-sortable .th-sort-desc::after {
-    margin-left: 5px;
-}
-
-.table-sortable .th-sort-asc,
-.table-sortable .th-sort-desc {
-    background: #537931;
-}
-
-
 
 @media(min-width: 999px) {
 

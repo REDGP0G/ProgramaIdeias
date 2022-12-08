@@ -13,21 +13,19 @@ namespace ProgramaIdeias.Models
         public string Descricao { get; set; }
         public DateTime Data { get; set; }
         public string Status { get; set; }
-
-        [Display(Name = "Ganho Monetário")]
         public float? Ganho { get; set; }
 
         [Display(Name = "Ganho")]
         public string? DescricaoGanho { get; set; }
-        public double Investimento { get; set; }
-        public string Feedback { get; set; }
+        public float Investimento { get; set; }
+        public string? Feedback { get; set; }
         [Display(Name = "Nome da Equipe")]
         public string? NomeEquipe { get; set; }
 
         public virtual List<EquipeIdeia>? EquipeIdeia { get; set; }
 
         [NotMapped]
-        public IEnumerable<int>? Participantes { get; set; }
+        public List<int>? Participantes { get; set; }
 
         private readonly Contexto _context;
         public Ideia()

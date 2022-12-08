@@ -17,6 +17,8 @@ namespace ProgramaIdeias.Controllers
         public IActionResult Index()
         {
             Ideia ideia = new(_context);
+            var equipes = _context.EquipeIdeia.ToList();
+            var func = _context.Funcionario.ToList();
             return View(ideia);
         }
         public IActionResult Leaderboard()

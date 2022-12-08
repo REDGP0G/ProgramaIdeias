@@ -20,13 +20,14 @@
 			<div class="falha-details">
 				<div class="textfield">
 					<label asp-for="NomeEquipe" class="control-label"></label>
-					<input asp-for="NomeEquipe" class="form-control" autocomplete="off" placeholder="Digite o nome da equipe" />
+					<input asp-for="NomeEquipe" class="form-control nomeequipe" autocomplete="off" placeholder="Digite o nome da equipe" />
+					<span class="field-validation-error hide nomeequipe">Escolha um nome para a equipe</span>
 				</div>
 				<div class="textfield">
 					<label class="control-label">Número de Participantes</label>
 					<select id="nparticipantes" class="form-select" onchange="AtualizarParticipantes()">
 						<option selected disabled value="">Selecione a quantidade de participantes</option>
-						@for (int x = 1; x <= 6; x++)
+						@for (int x = 1; x <= 4; x++)
 						{
 							<option value="@x">@x</option>
 						}
@@ -36,7 +37,7 @@
 				{
 					<div class="textfield divparticipantes required hide">
 						<label class="control-label">Participante @x</label>
-						<select asp-for="Participantes" class="form-select">
+						<select  asp-for="Participantes" class="form-select">
 							<option selected disabled value="">Selecione o funcionário</option>
 							@foreach (var funcionario in Model.GetFuncionarios().OrderBy(x => x.Nome))
 							{
@@ -57,7 +58,8 @@
 				</div>
 				<div class="textfield">
 					<label class="control-label">Quanto foi o investimento?</label>
-					<input type="number" asp-for="Investimento" class="form-control" autocomplete="off" placeholder="Investimento">
+					<input type="number" asp-for="Investimento" class="form-control investimento" autocomplete="off" placeholder="Investimento">
+					<span class="field-validation-error hide investimento">Digite o ganho, se não tiver, coloque 0</span>
 				</div>
 			</div>
 		</div>
