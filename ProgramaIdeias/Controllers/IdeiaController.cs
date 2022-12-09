@@ -21,7 +21,24 @@ namespace ProgramaIdeias.Controllers
             var func = _context.Funcionario.ToList();
             return View(ideia);
         }
-        public IActionResult Leaderboard()
+        public async Task<IActionResult> Details(int? id)
+        {
+
+            if (id == null || _context.Ideia == null)
+            {
+                return NotFound();
+            }
+
+            var cadastropare = _context.Ideia.FirstOrDefault(m => m.IDIdeia == id);
+            if (cadastropare == null)
+            {
+                return NotFound();
+            }
+            var funcionarios = _context.Funcionario.ToList();
+            var equipes = _context.EquipeIdeia.ToList();
+            return View(cadastropare);
+        }
+		public IActionResult Leaderboard()
         {
             return View();
         }

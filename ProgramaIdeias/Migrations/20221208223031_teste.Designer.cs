@@ -12,8 +12,8 @@ using ProgramaIdeias.Models;
 namespace ProgramaIdeias.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20221205113807_Teste")]
-    partial class Teste
+    [Migration("20221208223031_teste")]
+    partial class teste
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
