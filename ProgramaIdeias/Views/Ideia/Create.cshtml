@@ -25,25 +25,27 @@
 				</div>
 				<div class="textfield">
 					<label class="control-label">Número de Participantes</label>
-					<select id="nparticipantes" class="form-select" onchange="AtualizarParticipantes()">
+					<select id="nparticipantes" class="form-select required nparticipantes" onchange="AtualizarParticipantes()">
 						<option selected disabled value="">Selecione a quantidade de participantes</option>
 						@for (int x = 1; x <= 4; x++)
 						{
 							<option value="@x">@x</option>
 						}
 					</select>
+					<span class="field-validation-error hide nparticipantes">Escolha o número de participantes</span>
 				</div>
 				@for (int x = 1; x <= 6; x++)
 				{
 					<div class="textfield divparticipantes required hide">
 						<label class="control-label">Participante @x</label>
-						<select  asp-for="Participantes" class="form-select">
+						<select asp-for="Participantes" class="form-select required participante">
 							<option selected disabled value="">Selecione o funcionário</option>
 							@foreach (var funcionario in Model.GetFuncionarios().OrderBy(x => x.Nome))
 							{
 								<option value="@funcionario.IDFuncionario">@funcionario.Nome</option>
 							}
 						</select>
+						<span class="field-validation-error hide participante">Escolha o participante</span>
 					</div>
 				}
 				<div class="textfield">
@@ -88,22 +90,25 @@
 	}
 
 	formIdeia.addEventListener('submit', (f) => {
-		errors.forEach((e) =>{
+		errors.forEach((e) => {
 			e.classList.add('hide');
 		});
 
 
 		requiredInputs.forEach((i) => {
-			if (i.value === '') {
-				var classlist = i.classList;
-				errors.forEach((e) => {
-					classlist.forEach((cl) => {
-						if (e.classList.contains(cl)) {
-							e.classList.remove('hide');
-						}
+
+			if (!(i.parentElement.classList.contains('hide'))){
+				if (i.value === '') {
+					var classlist = i.classList;
+					errors.forEach((e) => {
+						classlist.forEach((cl) => {
+							if (e.classList.contains(cl)) {
+								e.classList.remove('hide');
+							}
+						});
 					});
-				});
-				f.preventDefault();
+					f.preventDefault();
+				}
 			}
 		});
 	});
